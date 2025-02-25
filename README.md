@@ -3,10 +3,21 @@ is a novel deep learning framework designed for malicious traffic detection in n
 # Installation instruction
 pip install -r requirements.txt
 
-#Implementation
-Here we provide the implementation of a MGAN layer in TensorFlow, along with a minimal execution example (on the CICIDS2017 dataset). The repository is organised as follows:
+## 🚀 Implementation
 
-dataset/ contains the necessary dataset files for CICIDS2017;
-models/models.py contains the implementation of the MGAN(Model);
-layers.py contains the implementation of the MultiGraphConvolution(Layer);
-Finally, train.py puts all of the above together and may be used to execute a full training run on a CICIDS2017.
+Here we provide the implementation of an **MGAN layer** in **TensorFlow**, along with a **minimal execution example** on the **CICIDS2017 dataset**.
+
+### 📁 Repository Structure
+The repository is organized as follows:
+
+- **`dataset/`** – Contains the necessary dataset files for **CICIDS2017**.
+- **`models/models.py`** – Implements the **MGAN model**.
+- **`layers.py`** – Defines the **MultiGraphConvolution layer**.
+- **`train.py`** – Combines all the components to execute a **full training run on CICIDS2017**.
+
+---
+
+### 🔧 **Usage**
+To train MGAN on CICIDS2017, run:
+```bash
+python train.py --dataset dataset/cicids2017.csv --epochs 50
