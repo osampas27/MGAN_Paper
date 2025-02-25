@@ -5,19 +5,27 @@ pip install -r requirements.txt
 
 ## 🚀 Implementation
 
-Here we provide the implementation of an **MGAN layer** in **TensorFlow**, along with a **minimal execution example** on the **CICIDS2017 dataset**.
+Here we provide the implementation of **MGAN (Multi-View Graph Attention Network)** in **TensorFlow/PyTorch**, along with a **minimal execution example** on the **CICIDS2017 dataset**.
 
 ### 📁 Repository Structure
 The repository is organized as follows:
 
 - **`dataset/`** – Contains the necessary dataset files for **CICIDS2017**.
-- **`models/models.py`** – Implements the **MGAN model**.
-- **`layers.py`** – Defines the **MultiGraphConvolution layer**.
-- **`train.py`** – Combines all the components to execute a **full training run on CICIDS2017**.
+- **`models/`** – Contains the full implementation of **MGAN**, including:
+  - **`mgan_model.py`** – The main MGAN architecture combining Graph Attention Networks (GATs) and Transformers.
+  - **`graph_attention.py`** – Implements the multi-head **Graph Attention layer**.
+  - **`transformer_encoder.py`** – Defines the **Transformer-based sequence encoder** for temporal modeling.
+  - **`loss_functions.py`** – Includes **contrastive loss** and **cross-entropy loss**.
+- **`layers.py`** – Implements additional **custom layers** used in MGAN.
+- **`train.py`** – Combines all the components to execute a **full training run** on **CICIDS2017**.
 
 ---
 
 ### 🔧 **Usage**
-To train MGAN on CICIDS2017, run:
+#### **1️⃣ Dataset Preparation**
+Ensure the **CICIDS2017 dataset** is placed inside the `dataset/` folder. Then, preprocess it:
 ```bash
-python train.py --dataset dataset/cicids2017.csv --epochs 50
+python dataset/preprocessing.py --input dataset/cicids2017_raw.csv --output dataset/cicids2017_processed.csv --normalize --encode_labels
+
+
+python evaluate.py --model_path results/mgan_model.pth
