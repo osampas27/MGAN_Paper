@@ -1,0 +1,36 @@
+# Configuration for MGAN Training & Evaluation
+
+# Model Parameters
+model:
+  input_dim: 128            # Input feature dimension
+  hidden_dim: 256           # Hidden layer dimension
+  output_dim: 2             # Number of classes (binary classification)
+  num_heads: 8              # Number of attention heads in GAT
+  num_layers: 4             # Number of Transformer layers
+  dropout: 0.5              # Dropout rate
+
+# Training Settings
+training:
+  epochs: 50                # Number of training epochs
+  batch_size: 32            # Training batch size
+  learning_rate: 0.001      # Learning rate for optimizer
+  weight_decay: 0.0001      # L2 regularization weight decay
+  loss_function: "cross_entropy"  # Loss function (options: "cross_entropy", "contrastive")
+  optimizer: "adam"         # Optimizer choice (options: "adam", "sgd")
+
+# Dataset Paths
+data:
+  train_path: "data/train.csv"
+  test_path: "data/test.csv"
+  val_path: "data/val.csv"
+
+# Checkpoint and Logging
+checkpoint:
+  save_model: true          # Whether to save model after training
+  checkpoint_path: "results/mgan_model.pth"  # Model save path
+  log_dir: "results/logs/"  # Directory for training logs
+
+# Hardware Settings
+hardware:
+  use_gpu: true             # Use GPU if available
+  gpu_device: "cuda:0"      # GPU device ID
